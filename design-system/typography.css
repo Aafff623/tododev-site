@@ -1,0 +1,12 @@
+/* design-system/typography.css */
+:root {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+/* 层级（营销页）
+   h1: clamp 2rem→3.5rem, semibold, tracking-tight, leading 1.0–1.05
+   lead: 16–17px, text-secondary, leading-relaxed
+   section-title: 20–24px semibold
+   body: 14–15px
+   产品 UI 内: 12–14px 主体, 11–12px 元数据
+   kbd 提示: 11px, text-dim, 右对齐 */

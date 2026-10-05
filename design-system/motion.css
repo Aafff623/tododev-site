@@ -1,0 +1,15 @@
+/* design-system/motion.css — 克制原则见 research/04 */
+:root {
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 150ms;   /* hover colors */
+  --dur-move: 200ms;   /* sidebar width / palette transform+opacity */
+  --dur-soft: 300ms;   /* tooltip opacity */
+  --delay-tooltip: 400ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

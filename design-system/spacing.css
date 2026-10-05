@@ -1,0 +1,17 @@
+/* design-system/spacing.css — 4px 网格；关键高度全部实测 */
+:root {
+  --h-navbar: 56px;  /* h-14 */
+  --h-appbar: 44px;  /* h-11：sidebar header/footer、app 顶栏 */
+  --w-sidebar-collapsed: 52px;
+  --w-sidebar-expanded: 240px;
+  --w-sidebar-min: 200px;
+  --w-sidebar-max: 320px;
+  --h-demo-mobile: 520px;
+  --h-demo-desktop: 620px;
+  --w-demo-max: 1232px; /* max-w-7xl(1280) - padding */
+  --w-palette: 560px;
+  --h-palette: 460px;
+  --radius-frame: 12px;  /* rounded-xl */
+  --radius-card: 8px;    /* rounded-lg */
+  --radius-control: 6px; /* rounded-md */
+}

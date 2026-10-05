@@ -1,0 +1,29 @@
+# local-only payloads
+temp/
+!temp/AGENTS.md
+!temp/README.md
+temp/secrets/
+
+# local MCP config
+.agents/mcp.json
+
+# codegraph local index
+.codegraph/
+
+# refs are cloned reference repos (third-party, not our source)
+refs/
+
+# capture raw payloads are reference material of the source site (local-only)
+capture/
+
+# node / next
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# misc
+.DS_Store
+*.log
+.env*

@@ -1,0 +1,22 @@
+/* design-system/colors.css — 实测 zinc 灰阶层级（来源见 research/01）
+   site/app/globals.css 是唯一消费方（@theme inline 映射为 Tailwind 语义色） */
+:root {
+  --surface: #18181b;
+  --surface-elevated: #1f1f23;
+  --surface-hover: #1f1f23;
+  --surface-inset: #09090b;
+  --surface-secondary: #1f1f23;
+  --surface-tertiary: #27272a;
+
+  --border-default: #27272a;
+  --border-strong: #3f3f46;
+
+  --text-primary: #fafaf9;
+  --text-secondary: #d4d4d8;
+  --text-tertiary: #71717a;
+  --text-dim: #52525b;
+
+  --nav-bg: rgba(24, 24, 27, 0.85);
+  --accent: #4f46e5; /* indigo-600 */
+  --accent-hover: #4338ca; /* indigo-700 */
+}
