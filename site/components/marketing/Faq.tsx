@@ -1,3 +1,5 @@
+import { IconPlus } from "@/components/demo/icons-phosphor";
+
 const faqs = [
   {
     q: "What is relay?",
@@ -32,20 +34,10 @@ export function Faq() {
           <details key={f.q} className="group border-b border-line">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-[14px] font-medium text-content [&::-webkit-details-marker]:hidden">
               {f.q}
-              <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center text-content-tertiary transition-transform duration-200 group-open:rotate-45">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M12 5v14" />
-                </svg>
-              </span>
+              <IconPlus
+                size={12}
+                className="flex-shrink-0 text-content-tertiary transition-transform duration-200 group-open:rotate-45"
+              />
             </summary>
             <p className="pb-4 pr-8 text-[13.5px] leading-relaxed text-content-tertiary">
               {f.a}

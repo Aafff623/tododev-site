@@ -37,3 +37,9 @@
 ## Phosphor 图标
 
 `site/components/demo/icons-phosphor.tsx`（33 个组件）由 `temp/assets/@phosphor-icons/core` 包的 regular 集生成（Phosphor Icons MIT）。注意： phosphor CLI 的联网兜底在本机被墙，直接读包内 SVG 即可。
+
+## 深度素材批次（2026-10-05 下午，第二弹）
+
+- **四章吉祥物插图**（`public/ip/chapter-{delegate,automate,connect,reuse}.jpg`）：以 C1 为 `--subject-ref` 生成的同角色场景图（清单/闹钟/插头/书本），用于 demo 下方四章说明，每章配 Phosphor 图标。
+- **Connections 扩建到 24 个集成**（新增 13 个品牌：GitLab/Jira/Confluence/Figma/Discord/Netlify/Railway/Expo/Supabase/Neon/Airtable/PostHog/Mixpanel/Docker/Google Cloud，含 Design/Data 两个新分类），Connected 计数改为动态计算。
+- **部署裁切**：mmx 输出角落实测带极小渠道水印文字（`©UHD …Photvt.com` 等，pipeline 里被 pipeline 发现），已用 sharp 统一裁去四边 8% 区域（`temp/assets/crop-watermarks.mjs`）；候选原图未动。后续 mmx 产物上线前一律走此裁切。

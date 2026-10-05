@@ -265,9 +265,11 @@ export const schedules: ScheduleRow[] = [
 export type ConnectionCategory =
   | "Code & issues"
   | "Docs"
+  | "Design"
   | "Chat"
   | "Monitoring"
   | "Cloud"
+  | "Data"
   | "Payments";
 
 export type Connection = {
@@ -279,19 +281,6 @@ export type Connection = {
   connected: boolean;
   blurb: string;
 };
-
-export const connectionCategories: Array<
-  "All" | `Connected ${number}` | ConnectionCategory
-> = [
-  "All",
-  "Connected 3",
-  "Code & issues",
-  "Docs",
-  "Chat",
-  "Monitoring",
-  "Cloud",
-  "Payments",
-];
 
 export const connections: Connection[] = [
   {
@@ -358,6 +347,126 @@ export const connections: Connection[] = [
     connected: false,
     blurb: "Payments, invoices and revenue events as they happen.",
   },
+  {
+    name: "GitLab",
+    logo: "gitlab",
+    category: "Code & issues",
+    connected: false,
+    blurb: "Merge requests, pipelines and registry in one place.",
+  },
+  {
+    name: "Jira",
+    logo: "jira",
+    category: "Code & issues",
+    connected: false,
+    blurb: "Issues and sprints for teams already wired into Jira.",
+  },
+  {
+    name: "Confluence",
+    logo: "confluence",
+    category: "Docs",
+    connected: false,
+    blurb: "Long-form docs and decision records where they already live.",
+  },
+  {
+    name: "Figma",
+    logo: "figma",
+    category: "Design",
+    connected: false,
+    blurb: "Design files and frames agents can read for specs.",
+  },
+  {
+    name: "Discord",
+    logo: "discord",
+    category: "Chat",
+    connected: false,
+    blurb: "Community channels that never sleep.",
+  },
+  {
+    name: "Netlify",
+    logo: "netlify",
+    category: "Cloud",
+    connected: false,
+    blurb: "Deploy previews and instant rollbacks for static sites.",
+  },
+  {
+    name: "Railway",
+    logo: "railway",
+    category: "Cloud",
+    connected: false,
+    blurb: "Services and databases provisioned from a config.",
+  },
+  {
+    name: "Expo",
+    logo: "expo",
+    category: "Cloud",
+    connected: false,
+    blurb: "Mobile builds and OTA updates for React Native apps.",
+  },
+  {
+    name: "Supabase",
+    logo: "supabase",
+    category: "Data",
+    connected: true,
+    blurb: "Postgres, auth and storage behind one API.",
+  },
+  {
+    name: "Neon",
+    logo: "neon",
+    category: "Data",
+    connected: false,
+    blurb: "Serverless Postgres with database branching.",
+  },
+  {
+    name: "Airtable",
+    logo: "airtable",
+    category: "Data",
+    connected: false,
+    blurb: "Spreadsheet-databases the team keeps its plans in.",
+  },
+  {
+    name: "PostHog",
+    logo: "posthog",
+    category: "Monitoring",
+    connected: false,
+    blurb: "Product analytics with funnels and session replay.",
+  },
+  {
+    name: "Mixpanel",
+    logo: "mixpanel",
+    category: "Monitoring",
+    connected: false,
+    blurb: "Event funnels and retention for the product surface.",
+  },
+  {
+    name: "Docker",
+    logo: "docker",
+    category: "Cloud",
+    connected: false,
+    blurb: "Images and registries behind every deploy.",
+  },
+  {
+    name: "Google Cloud",
+    logo: "googlecloud",
+    category: "Cloud",
+    connected: false,
+    blurb: "Buckets, queues and functions on GCP.",
+  },
+];
+
+export const connectionCategories: Array<
+  "All" | `Connected ${number}` | ConnectionCategory
+> = [
+  "All",
+  `Connected ${connections.filter((c) => c.connected).length}`,
+  "Code & issues",
+  "Docs",
+  "Design",
+  "Chat",
+  "Monitoring",
+  "Cloud",
+  "Data",
+  "Payments",
 ];
 
 /* ── Skills（原创条目）─────────────────────────────────────────── */
