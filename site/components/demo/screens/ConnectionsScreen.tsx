@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   connectionCategories,
   connections,
 } from "@/lib/demo/mock-data";
 import { ScreenHeader } from "./SchedulesScreen";
+import { BrandMark, brandTint } from "../brand-marks";
 import { IconCheck, Monogram } from "../icons";
 
 export function ConnectionsScreen() {
@@ -51,11 +53,21 @@ export function ConnectionsScreen() {
               >
                 <div className="flex items-center gap-2">
                   <span
-                    className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md text-[11px] font-semibold"
-                    style={{ backgroundColor: c.tint, color: "#f4f4f2" }}
+                    className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md ring-1 ring-inset ring-white/10"
+                    style={{ backgroundColor: `${brandTint(c.logo)}1f` }}
                     aria-hidden="true"
                   >
-                    {c.monogram}
+                    {c.logoPng ? (
+                      <Image
+                        src={c.logoPng}
+                        alt={c.name}
+                        width={16}
+                        height={16}
+                        className="h-4 w-4 object-contain"
+                      />
+                    ) : (
+                      <BrandMark name={c.logo} size={16} mono />
+                    )}
                   </span>
                   <span className="min-w-0 flex-1 truncate text-[13.5px] font-medium text-content">
                     {c.name}

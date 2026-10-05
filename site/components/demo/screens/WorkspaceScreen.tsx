@@ -1,7 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { brand } from "@/lib/demo/brand";
-import { agents, beats, tasks, topic } from "@/lib/demo/mock-data";
+import {
+  agents,
+  beats,
+  chiefAvatar,
+  tasks,
+  topic,
+} from "@/lib/demo/mock-data";
 import type { BoardState, ChatMessage } from "@/lib/demo/mock-data";
 import type { DemoAction, DemoState } from "@/lib/demo/state";
 import {
@@ -19,10 +26,7 @@ import {
   IconPlus,
   IconSliders,
   IconSpark,
-  Monogram,
 } from "../icons";
-
-const chiefTint = "#3f4c63";
 
 /* ── 顶栏 ─────────────────────────────────────────────────────── */
 
@@ -96,13 +100,13 @@ function ChatHeader({
 
 function ChiefAvatar() {
   return (
-    <span
-      className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full"
-      style={{ backgroundColor: chiefTint }}
-      aria-hidden="true"
-    >
-      <IconSpark size={12} className="text-[#cdd6ea]" />
-    </span>
+    <Image
+      src={chiefAvatar}
+      alt="Chief"
+      width={24}
+      height={24}
+      className="h-6 w-6 flex-shrink-0 rounded-full object-cover ring-1 ring-white/10"
+    />
   );
 }
 
@@ -118,7 +122,13 @@ function TaskRow({ id }: { id: string }) {
         {t.title}
       </span>
       <span className="flex flex-shrink-0 items-center gap-1.5 rounded-md bg-surface-tertiary px-1.5 py-0.5">
-        <Monogram initials={a.name.slice(0, 1)} size={14} tint={a.hue} />
+        <Image
+          src={a.avatar}
+          alt={a.name}
+          width={14}
+          height={14}
+          className="h-3.5 w-3.5 rounded-full object-cover"
+        />
         <span className="text-[11px] text-content-tertiary">{a.name}</span>
       </span>
     </div>
@@ -130,7 +140,13 @@ function Message({ msg }: { msg: ChatMessage }) {
     <div className="message-in flex flex-col gap-1">
       {msg.from === "user" ? (
         <div className="flex items-start gap-2.5">
-          <Monogram initials="N" size={24} tint="#a98a5b" />
+          <Image
+            src="/avatars/noa.jpg"
+            alt="You"
+            width={24}
+            height={24}
+            className="h-6 w-6 flex-shrink-0 rounded-full object-cover ring-1 ring-white/10"
+          />
           <div className="max-w-[85%] rounded-lg bg-surface-secondary px-3 py-2.5">
             <p className="text-[13px] leading-snug text-content">{msg.text}</p>
           </div>
@@ -276,10 +292,9 @@ function BoardPane({ board }: { board: BoardState }) {
                         className="rounded-md border border-line bg-surface-secondary p-2"
                       >
                         <div className="flex items-center gap-1.5">
-                          <Monogram
-                            initials={t.project.slice(0, 1)}
-                            size={14}
-                            tint={chiefTint}
+                          <span
+                            className="h-2 w-2 flex-shrink-0 rounded-[3px] bg-[#5f7fb8]"
+                            aria-hidden="true"
                           />
                           <span className="text-[11px] text-content-tertiary">
                             {t.project}
@@ -295,7 +310,13 @@ function BoardPane({ board }: { board: BoardState }) {
                           {t.title}
                         </p>
                         <div className="mt-1.5 flex items-center gap-1.5">
-                          <Monogram initials={a.name.slice(0, 1)} size={14} tint={a.hue} />
+                          <Image
+                            src={a.avatar}
+                            alt={a.name}
+                            width={14}
+                            height={14}
+                            className="h-3.5 w-3.5 rounded-full object-cover"
+                          />
                           <span className="text-[11px] text-content-dim">
                             <CardTime col={col.key} />
                           </span>

@@ -1,0 +1,39 @@
+# 09 · IP 吉祥物候选与品牌资产（2026-10-05）
+
+按 `ip-as-logo` 规范一次成图：3 个方向 × 2 = 6 张独立候选，每张一个完整 1:1 方图、三色（两 IP 色 + 一背景色）、无文字。生成通道：本地 MiniMax `mmx image generate`（image-01），prompt 为该 skill 的骨架改写、压缩到 <1500 字符。
+
+## 方向与结果
+
+| 标签 | 方向 | 角落 | 文件（temp/assets/gen/ip/，不进 Git） |
+| --- | --- | --- | --- |
+| A1 / A2 | 信使机器人（square 头+天线塔+圆角身体） | 左下 / 右下 | A1-robot-lower-left.jpg / A2-robot-lower-right.jpg |
+| B1 / B2 | 纸飞机信使（圆滚滚机身+小圆眼） | 左下 / 右下 | B1-plane-lower-left.jpg / B2-plane-lower-right.jpg |
+| C1 / C2 | 信使小狗（大圆头+耷耳+任务挂牌） | 左下 / 右下 | C1-pup-lower-left.jpg / C2-pup-lower-right.jpg |
+
+（均为 1024×1024。）
+
+**选定：C1（信使小狗）**。理由：任务挂牌直接对应 relay 的"派单/中继"产品隐喻；三只里辨识度与可爱度最高；在 32×32 缩略（favicon）下头部+耳朵剪影仍可读。
+**备选：B2（纸飞机）**，色彩与站点最接近但面部偏弱。
+
+偏差记录：C1 实出四色（奶油/褐/珊瑚项圈/橄榄底，超出"恰好三色"）且带微笑；按 ip-as-logo "一次成图、原样交付"纪律不做修补，由品牌侧接受。
+
+## 落地位置
+
+- `site/public/ip/mascot.jpg`（即 C1）：chief 头像、底部品牌位
+- `site/app/icon.jpg`：站点 favicon（同图）
+- 四张角色头像（`site/public/avatars/`）：designer.jpg / frontend.jpg / release.jpg / noa.jpg，均为 MiniMax 生成、与站内 UI 同色系（深炭底 flat vector）
+
+## 品牌 logo 资产（连接页 + hero "Works with"）
+
+| 来源 | 许可 | 覆盖 |
+| --- | --- | --- |
+| simple-icons 包 | CC0-1.0 | Claude / Gemini CLI / Cursor / OpenCode / Qwen / GitHub / Linear / Notion / Sentry / Datadog / Vercel / Cloudflare / Stripe |
+| openai.svg（ai.sitebard 镜像） | Lobe Icons MIT | Codex |
+| slack-salesforce-logo-nav-white.png | Slack 官方资产（nominative use） | Slack |
+| ZCode / Droid | 无公开官方 mark | 回落品牌色方块 |
+
+商标均归各公司；本站仅为兼容性标注（nominative use），未暗示背书。
+
+## Phosphor 图标
+
+`site/components/demo/icons-phosphor.tsx`（33 个组件）由 `temp/assets/@phosphor-icons/core` 包的 regular 集生成（Phosphor Icons MIT）。注意： phosphor CLI 的联网兜底在本机被墙，直接读包内 SVG 即可。

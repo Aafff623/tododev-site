@@ -6,14 +6,16 @@ import type { DemoScreen } from "./state";
 
 /* ── Workspace：多智能体叙事（原创剧本）─────────────────────────── */
 
-export type Agent = { name: string; role: string; hue: string };
+export type Agent = { name: string; role: string; hue: string; avatar: string };
 
 export const agents: Record<string, Agent> = {
-  designer: { name: "Brand designer", role: "design", hue: "#c29343" },
-  frontend: { name: "Frontend engineer", role: "build", hue: "#4f8f6b" },
-  release: { name: "Release engineer", role: "ship", hue: "#5f7fb8" },
-  you: { name: "You", role: "review", hue: "#8a7fb8" },
+  designer: { name: "Brand designer", role: "design", hue: "#c29343", avatar: "/avatars/designer.jpg" },
+  frontend: { name: "Frontend engineer", role: "build", hue: "#6b8f71", avatar: "/avatars/frontend.jpg" },
+  release: { name: "Release engineer", role: "ship", hue: "#5f7fb8", avatar: "/avatars/release.jpg" },
+  you: { name: "You", role: "review", hue: "#a98a5b", avatar: "/avatars/noa.jpg" },
 };
+
+export const chiefAvatar = "/ip/mascot.jpg";
 
 export type Task = {
   num: string;
@@ -270,8 +272,9 @@ export type ConnectionCategory =
 
 export type Connection = {
   name: string;
-  monogram: string;
-  tint: string;
+  /** BrandMark key（brand-marks.tsx）；slack 为官方 PNG */
+  logo: string;
+  logoPng?: string;
   category: ConnectionCategory;
   connected: boolean;
   blurb: string;
@@ -293,72 +296,64 @@ export const connectionCategories: Array<
 export const connections: Connection[] = [
   {
     name: "GitHub",
-    monogram: "GH",
-    tint: "#3f3f46",
+    logo: "github",
     category: "Code & issues",
     connected: true,
     blurb: "Repositories, issues and pull requests for every project.",
   },
   {
     name: "Linear",
-    monogram: "LN",
-    tint: "#5e6ad2",
+    logo: "linear",
     category: "Code & issues",
     connected: true,
     blurb: "Cycles and projects that keep the issue queue honest.",
   },
   {
     name: "Notion",
-    monogram: "N",
-    tint: "#6b6b6b",
+    logo: "notion",
     category: "Docs",
     connected: false,
     blurb: "Specs, wikis and meeting notes in one shared space.",
   },
   {
     name: "Slack",
-    monogram: "S",
-    tint: "#8f5f4f",
+    logo: "slack",
+    logoPng: "/brands/slack.png",
     category: "Chat",
     connected: true,
     blurb: "Channels and DMs where the team actually talks.",
   },
   {
     name: "Sentry",
-    monogram: "Se",
-    tint: "#7b5c90",
+    logo: "sentry",
     category: "Monitoring",
     connected: false,
     blurb: "Error tracking with stack traces attached to releases.",
   },
   {
     name: "Datadog",
-    monogram: "Dd",
-    tint: "#77618c",
+    logo: "datadog",
     category: "Monitoring",
     connected: false,
     blurb: "Metrics, logs and traces in a single pane of glass.",
   },
   {
     name: "Vercel",
-    monogram: "V",
-    tint: "#4f4f4f",
+    logo: "vercel",
     category: "Cloud",
     connected: true,
     blurb: "Preview URLs and production deploys for the sites.",
   },
   {
     name: "Cloudflare",
-    monogram: "Cf",
-    tint: "#a86438",
+    logo: "cloudflare",
     category: "Cloud",
     connected: false,
     blurb: "DNS, CDN and Workers at the edge.",
   },
   {
     name: "Stripe",
-    monogram: "St",
-    tint: "#5b53c9",
+    logo: "stripe",
     category: "Payments",
     connected: false,
     blurb: "Payments, invoices and revenue events as they happen.",
@@ -422,12 +417,17 @@ export const skills: Skill[] = [
 
 /* ── palette / 导航 ───────────────────────────────────────────── */
 
-export const navItems: Array<{ screen: DemoScreen; label: string }> = [
-  { screen: "workspace", label: "Workspace" },
-  { screen: "schedules", label: "Schedules" },
-  { screen: "connections", label: "Connections" },
-  { screen: "skills", label: "Skills" },
-];
+/** 营销页 Works-with 条目（品牌 mark + 名称；无官方 mark 的回落色块） */
+export const worksWith = [
+  { name: "Claude Code", logo: "claude" },
+  { name: "Codex", logo: "codex" },
+  { name: "Gemini CLI", logo: "gemini" },
+  { name: "Cursor", logo: "cursor" },
+  { name: "OpenCode", logo: "opencode" },
+  { name: "ZCode", logo: null, tint: "#4f46e5" },
+  { name: "Qwen Code", logo: "qwen" },
+  { name: "Droid", logo: null, tint: "#5f7fb8" },
+] as const;
 
 export type PaletteGoTo = {
   label: string;
@@ -456,14 +456,11 @@ export const paletteGoTo: PaletteGoTo[] = [
   { label: "Usage", icon: "bars" },
 ];
 
-/** 营销页 Works-with 条目（纯文字 + monogram 点，原创排版） */
-export const worksWith = [
-  { name: "Claude Code", tint: "#d97757" },
-  { name: "Codex", tint: "#8f8f8f" },
-  { name: "Gemini CLI", tint: "#8e75b2" },
-  { name: "Cursor", tint: "#9c9c9c" },
-  { name: "OpenCode", tint: "#7aa2f7" },
-  { name: "ZCode", tint: "#4f46e5" },
-  { name: "Qwen Code", tint: "#6d44e8" },
-  { name: "Droid", tint: "#5f7fb8" },
+/* ── palette / 导航 ───────────────────────────────────────────── */
+
+export const navItems: Array<{ screen: DemoScreen; label: string }> = [
+  { screen: "workspace", label: "Workspace" },
+  { screen: "schedules", label: "Schedules" },
+  { screen: "connections", label: "Connections" },
+  { screen: "skills", label: "Skills" },
 ];

@@ -16,8 +16,11 @@
 - 我们**不**复制：品牌（todos / [todos] logo）、营销文案、mock 内容（聊天叙事、任务标题、schedule 行、skill 描述）、图标资产、头像。
 - 本站所有文案、mock 数据、品牌均为原创撰写；`capture/` 与 `refs/` 保持 Git 忽略，不进入交付物。
 
-## 本站资产
+## 本站资产（2026-10-05 更新：图像资产批次）
 
 - 字体：Inter / JetBrains Mono variable —— SIL OFL 1.1（via @fontsource-variable，可自由嵌入）。
-- 图标：自绘 SVG（stroke 风格与 lucide 同源的通用几何形）或 lucide（ISC）；不使用该站自绘图标。
-- 头像：原创生成（首字母/几何 SVG），不使用第三方头像服务产物。
+- UI 图标：Phosphor Icons（MIT），regular 集，由包内 SVG 生成为 `components/demo/icons-phosphor.tsx`；另有少量自绘 SVG。
+- 头像：原创生成（MiniMax image-01，本项目自有 AIGC 资产）。
+- 品牌 logo：simple-icons（CC0-1.0）× 13 + openai.svg（Lobe Icons，MIT）+ Slack 官方 PNG（nominative use）；ZCode/Droid 无公开官方 mark，回落品牌色方块。
+- IP 吉祥物：MiniMax image-01 生成（C1 信使小狗），候选与选择记录见 `09-ip-candidates.md`。
+- 未使用该站自绘图标与头像资产。

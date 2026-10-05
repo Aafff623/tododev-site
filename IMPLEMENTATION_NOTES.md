@@ -60,3 +60,9 @@
 - 看板键盘 DnD（shadcn-kanban 模式已在 refs/ 备好）。
 - `?demo=` 状态目前不写入 history（避免污染路由），如需可加 replaceState。
 - 品牌定稿后替换 `site/lib/demo/brand.ts`。
+
+## 图像资产批次（2026-10-05）
+
+- 4 张角色头像 + 6 张 IP 候选（MiniMax image-01）：`public/avatars/`、`public/ip/mascot.jpg`（favicon 同图），过程与许可见 `research/09-ip-candidates.md`。
+- 14 个真实品牌 mark 接入 hero "Works with" 与 Connections 卡片（tinted 底 + mono mark）。
+- demo 图标集整体切换为 Phosphor Icons（MIT），`components/demo/icons-phosphor.tsx` 由 `temp/assets/gen-icons.mjs` 生成，改图标改映射表后重跑即可。

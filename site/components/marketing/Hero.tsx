@@ -1,5 +1,6 @@
 import { brand } from "@/lib/demo/brand";
 import { worksWith } from "@/lib/demo/mock-data";
+import { BrandMark } from "@/components/demo/brand-marks";
 
 export function Hero() {
   return (
@@ -32,11 +33,15 @@ export function Hero() {
         <ul className="flex flex-wrap items-center gap-x-5 gap-y-3">
           {worksWith.map((w) => (
             <li key={w.name} className="flex items-center gap-2">
-              <span
-                className="h-2.5 w-2.5 flex-shrink-0 rounded-[4px]"
-                style={{ backgroundColor: w.tint }}
-                aria-hidden="true"
-              />
+              {w.logo ? (
+                <BrandMark name={w.logo} size={20} className="flex-shrink-0" />
+              ) : (
+                <span
+                  className="h-2.5 w-2.5 flex-shrink-0 rounded-[4px]"
+                  style={{ backgroundColor: w.tint }}
+                  aria-hidden="true"
+                />
+              )}
               <span className="whitespace-nowrap text-sm font-medium text-content-secondary">
                 {w.name}
               </span>

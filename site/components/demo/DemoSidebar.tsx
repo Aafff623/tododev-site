@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { brand } from "@/lib/demo/brand";
 import { navItems } from "@/lib/demo/mock-data";
 import type { DemoAction, DemoState } from "@/lib/demo/state";
@@ -12,7 +13,6 @@ import {
   IconSearch,
   IconSpark,
   IconClock,
-  Monogram,
 } from "./icons";
 
 /* ── 通用小件 ─────────────────────────────────────────────────── */
@@ -319,7 +319,13 @@ export function DemoSidebar({
           state.sidebarExpanded ? "px-2.5" : "justify-center"
         }`}
       >
-        <Monogram initials="N" size={24} tint="#a98a5b" />
+        <Image
+          src="/avatars/noa.jpg"
+          alt={brand.user.name}
+          width={24}
+          height={24}
+          className="h-6 w-6 flex-shrink-0 rounded-full object-cover ring-1 ring-white/10"
+        />
         {state.sidebarExpanded ? (
           <>
             <span className="ml-2 min-w-0 flex-1 truncate text-[12.5px] text-content-secondary">
@@ -380,7 +386,13 @@ export function MobileSidebar({
         </div>
         <NavList state={state} dispatch={dispatch} />
         <div className="flex h-11 flex-shrink-0 items-center gap-2 border-t border-line px-2.5">
-          <Monogram initials="N" size={24} tint="#a98a5b" />
+          <Image
+            src="/avatars/noa.jpg"
+            alt={brand.user.name}
+            width={24}
+            height={24}
+            className="h-6 w-6 flex-shrink-0 rounded-full object-cover ring-1 ring-white/10"
+          />
           <span className="text-[12.5px] text-content-secondary">
             {brand.user.name}
           </span>
