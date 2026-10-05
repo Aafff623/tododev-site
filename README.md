@@ -30,8 +30,9 @@ npm run lint
 cd site
 BUILD_EXPORT=1 npx next build   # 静态导出到 site/out/（自动加 basePath /tododev-site）
 cd out
+touch .nojekyll                 # 必须：GitHub Pages 默认 Jekyll 会忽略 _next/ 等下划线目录
 git init -b gh-pages && git add -A && git commit -m "deploy"
-git push https://github.com/Aafff623/tododev-site.git gh-pages
+git push --force https://github.com/Aafff623/tododev-site.git gh-pages
 ```
 
 决策记录见 `docs/adr/0001`：Gitee Pages 面向个人已停服（2024-05），故 Gitee（`gitee.com/fan-tengda/tododev-site`，remote `gitee`）仅作代码镜像；GitHub（remote `github`）为主远端。
