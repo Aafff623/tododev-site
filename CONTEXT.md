@@ -44,6 +44,14 @@ This file contains verified facts that help Agents work in this project. It is n
 ## Durable decisions
 
 - 2026-10-05：品牌采用 GPT 建议的占位 `[relay]`，收敛在单文件，便于后续替换。
+- 2026-10-05：品牌 IP 为"信号塔信使"（几何/工具向，A1 候选）；chief 头像与 favicon 同源。两轮候选原件在 `temp/assets/gen/ip*/`。
+- 2026-10-05：**Gitee Pages 面向个人已停服（2024-05，无公告）**——公网托管用 GitHub Pages（https://aafff623.github.io/tododev-site/），Gitee 仅代码镜像。部署方式与备选对比见 `docs/adr/0001`。
+- 2026-10-05：营销页交互红线——禁止滚动劫持/sticky 滚动隧道，demo 切屏只认点击（用户实测否决了 scroll-sync 方案）。
+
+## Known failure modes
+
+- mmx 生图：prompt >1500 字符整批静默失败；输出角落带渠道水印文字，上线前必须过 `temp/assets/crop-watermarks.mjs` 裁切。
+- ZCode IAB：rAF/IntersectionObserver 被节流（`visibilityState` 谎报 visible）、截图偶发超时/旧帧——视觉验收用生产 server，功能断言用 DOM 读取。
 
 ## 待确认
 

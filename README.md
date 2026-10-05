@@ -22,6 +22,20 @@ npm run build      # 生产构建
 npm run lint
 ```
 
+## Deploy（公网）
+
+线上地址：**https://aafff623.github.io/tododev-site/** （GitHub Pages，免域名）
+
+```bash
+cd site
+BUILD_EXPORT=1 npx next build   # 静态导出到 site/out/（自动加 basePath /tododev-site）
+cd out
+git init -b gh-pages && git add -A && git commit -m "deploy"
+git push https://github.com/Aafff623/tododev-site.git gh-pages
+```
+
+决策记录见 `docs/adr/0001`：Gitee Pages 面向个人已停服（2024-05），故 Gitee（`gitee.com/fan-tengda/tododev-site`，remote `gitee`）仅作代码镜像；GitHub（remote `github`）为主远端。
+
 ## Directory map
 
 | 目录 | 用途 |
