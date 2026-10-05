@@ -43,3 +43,21 @@
 - **四章吉祥物插图**（`public/ip/chapter-{delegate,automate,connect,reuse}.jpg`）：以 C1 为 `--subject-ref` 生成的同角色场景图（清单/闹钟/插头/书本），用于 demo 下方四章说明，每章配 Phosphor 图标。
 - **Connections 扩建到 24 个集成**（新增 13 个品牌：GitLab/Jira/Confluence/Figma/Discord/Netlify/Railway/Expo/Supabase/Neon/Airtable/PostHog/Mixpanel/Docker/Google Cloud，含 Design/Data 两个新分类），Connected 计数改为动态计算。
 - **部署裁切**：mmx 输出角落实测带极小渠道水印文字（`©UHD …Photvt.com` 等，pipeline 里被 pipeline 发现），已用 sharp 统一裁去四边 8% 区域（`temp/assets/crop-watermarks.mjs`）；候选原图未动。后续 mmx 产物上线前一律走此裁切。
+
+## IP 第二轮（2026-10-05 傍晚）：风格转向「几何/工具向」
+
+用户反馈：奶萌暖色小狗与站点 "quiet, precise, tool-like" 气质不合，要求风格大不一样。按 `ip-as-logo` 重新提案三个几何向方向，各 2 张（+2 张定向补画）：
+
+| 标签 | 方向 | 角落 | 配色 | 结果 |
+| --- | --- | --- | --- | --- |
+| A1 | 信号塔信使 | 左/中 | #6366f1 + #eef0f6 / 底 #101014 | **✅ 选定为新品牌 IP** |
+| A2 | 信号旗杆（无眼，物件非角色） | 右下 | off-white + 琥珀 / 深底 | 备选（物件向） |
+| B1/B2 | 纸飞机信使 | 左/右 | — | 弃选：底色被模型跑偏成浅灰 |
+| C1/C2 | 飞翼信封 | 左/右 | — | 弃选：底色被模型跑偏成浅蓝 |
+| A3/A4 | 信号塔严格补画 | 左 | — | 弃选：构图/四色控制不住；候选保留 |
+
+**A1 入选理由**：唯一同时满足「角色（有眼）+ 深锌底 + indigo/白 + 几何工具感」；小偏差（居中构图、嘴线、天线灯一点琥珀作信号色）由品牌侧接受。**产品隐喻也最准**：信号塔 = 派单中枢，正是 relay 的 chief 调度定位。
+
+**部署**：`public/ip/mascot.jpg`（chief 头像）+ `app/icon.jpg`（favicon）已换成 A1；四章场景图用 A1 作 `--subject-ref` 重画（清单/灯塔+闹钟/三灯枢纽/书+星）并同路径替换。旧小狗版保留在 `temp/assets/gen/ip/` 备回退。
+
+**教训**：mmx 对「hex 指定背景色」遵循不稳定（第二轮 4/6 跑偏成浅色），下单时要预期返工；素材上线前必须过水印裁切。
