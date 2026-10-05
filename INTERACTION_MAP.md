@@ -6,7 +6,7 @@
 stateDiagram-v2
   [*] --> Workspace
 
-  Workspace --> Schedules: sidebar / palette Go To / scroll-sync
+  Workspace --> Schedules: sidebar / palette Go To
   Workspace --> Connections: 同上
   Workspace --> Skills: 同上
   Schedules --> Workspace

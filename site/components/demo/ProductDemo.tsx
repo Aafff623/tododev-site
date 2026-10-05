@@ -143,18 +143,6 @@ export function ProductDemo() {
     return () => window.removeEventListener("keydown", onKey);
   }, [state.paletteOpen, state.mobileNavOpen]);
 
-  /* scroll-sync 章节导航（research/08-3） */
-  useEffect(() => {
-    const onNav = (e: Event) => {
-      const screen = (e as CustomEvent<{ screen: DemoScreen }>).detail?.screen;
-      if (screen && navItems.some((n) => n.screen === screen)) {
-        dispatch({ type: "navigate", screen, silent: true });
-      }
-    };
-    window.addEventListener("relay:demo-nav", onNav);
-    return () => window.removeEventListener("relay:demo-nav", onNav);
-  }, []);
-
   const markInteraction = () => {
     setLastInteraction(Date.now());
     if (state.autoplay) dispatch({ type: "set-autoplay", value: false });

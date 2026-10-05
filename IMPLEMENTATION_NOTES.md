@@ -36,11 +36,11 @@
 3. Tailwind 用 v4（@theme），GPT 记录的是参考站 v3——token 语义层等价。
 4. 字体走 @fontsource（本地构建产物），而非 next/font/google（构建网络依赖更稳）。
 
-## V2 创新清单（全部实现）
+## V2 创新清单（全部实现，scroll-sync 已按用户反馈移除）
 
 1. **Deep-link demo state**：`?demo=skills&view=palette&story=0` 直达任意状态，仅初始化 reducer 不动路由。
 2. **Replay**：frame 下方常驻小按钮，一键重置并重播。
-3. **Scroll-sync storytelling**（lg+）：demo 粘性驻留，四章字幕滚动切换，demo 自动跟屏；用户操作后不被抢权（silent 导航不打断剧本）。
+3. ~~Scroll-sync storytelling~~ **已移除**（2026-10-05 用户实测反馈：sticky 滚动叙事区劫持正常下拉浏览；demo 回归普通文档流，切屏只认点击，与 todos.dev 一致）。
 4. **Idle auto-tour**：无操作 12s 剧本恢复推进、结束 15s 后重播；任何输入立即让位。
 5. **Spotlight**：首次访问 frame 呼吸提示 + "Live demo" 提示行（sessionStorage 记忆）。
 6. **活的时间线**：消息逐拍入场、任务卡随看板流转（Backlog→In progress→Needs you→Done）。

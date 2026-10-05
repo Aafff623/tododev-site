@@ -44,7 +44,7 @@ export const initialDemoState: DemoState = {
 };
 
 export type DemoAction =
-  | { type: "navigate"; screen: DemoScreen; silent?: boolean }
+  | { type: "navigate"; screen: DemoScreen }
   | { type: "toggle-sidebar" }
   | { type: "set-sidebar-width"; width: number }
   | { type: "open-palette" }
@@ -70,8 +70,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
         ...state,
         screen: action.screen,
         mobileNavOpen: false,
-        // scroll-sync 等程序化导航不打断剧本引擎
-        autoplay: action.silent ? state.autoplay : false,
+        autoplay: false,
       };
     case "toggle-sidebar":
       return { ...state, sidebarExpanded: !state.sidebarExpanded };
